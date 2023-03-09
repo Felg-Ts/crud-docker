@@ -11,7 +11,7 @@ services:
       - MYSQL_USER=cruduser
       - MYSQL_PASSWORD=crudpass
   crud:
-    image: crudphp:latest
+    image: felgsts/crudphp:latest
     container_name: crud
     ports:
       - "8080:80"
