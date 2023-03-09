@@ -1,0 +1,19 @@
+version: '3.3'
+services:
+  db_crud:
+    image: mariadb
+    container_name: db_crud
+    volumes:
+      - /opt/crud_db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpass
+      - MYSQL_DATABASE=crud
+      - MYSQL_USER=cruduser
+      - MYSQL_PASSWORD=crudpass
+  crud:
+    image: crudphp:latest
+    container_name: crud
+    ports:
+      - "8080:80"
+    depends_on:
+      - db_crud
